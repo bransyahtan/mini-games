@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { GoArrowLeft } from "react-icons/go";
 import Swal from "sweetalert2";
 
 export const FetchApi = () => {
@@ -87,101 +89,119 @@ export const FetchApi = () => {
   };
 
   const isSubmitDisabled =
-    !selectedProvince || !selectedRegency || !selectedDistrict || !selectedVillage;
+    !selectedProvince ||
+    !selectedRegency ||
+    !selectedDistrict ||
+    !selectedVillage;
 
   return (
-    <div className="bg-slate-800  min-h-screen flex justify-center">
-     <div className="container w-2/4  mt-10 my-32 border border-white rounded-2xl bg-white">
-      <h1 className="text-3xl font-bold my-4 text-center">Selamat Datang Di Fetch API Wilayah</h1>
-      <div className="mb-4 mx-5">
-        <label className="block mb-2">Provinsi:</label>
-        <select
-          value={selectedProvince}
-          onChange={(e) => {
-            setSelectedProvince(e.target.value);
-            setSelectedRegency("");
-            setSelectedDistrict("");
-            setSelectedVillage("");
-          }}
-          className="border p-2 w-full"
-        >
-          <option value="">Pilih Provinsi</option>
-          {provinces.map((province) => (
-            <option key={province.id} value={province.id}>
-              {province.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      {selectedProvince && (
-        <div className="mb-4 mx-5">
-          <label className="block mb-2">Kabupaten/Kota</label>
+    <div className="bg-slate-800  min-h-screen flex justify-center ">
+      <div className="container w-2/4  mt-10 my-32 border border-white rounded-2xl ">
+        <div className="flex items-center m-5 text-white font-bold">
+          <div>
+            <Link to="/">
+              <p className="flex items-center text-2xl">
+                <GoArrowLeft className="text-2xl" />
+                
+              </p>
+            </Link>
+          </div>
+          <div className="flex-grow text-center">
+            <h1 className="text-2xl mr-16">
+              SELAMAT DATANG DI FETCH API INDONESIA
+            </h1>
+          </div>
+        </div>
+        <div className="mb-4 mx-10">
+          <label className="block mb-2 text-white">Provinsi:</label>
           <select
-            value={selectedRegency}
+            value={selectedProvince}
             onChange={(e) => {
-              setSelectedRegency(e.target.value);
+              setSelectedProvince(e.target.value);
+              setSelectedRegency("");
               setSelectedDistrict("");
               setSelectedVillage("");
             }}
             className="border p-2 w-full"
           >
-            <option value="">Pilih Kabupaten/Kota</option>
-            {regencies.map((regency) => (
-              <option key={regency.id} value={regency.id}>
-                {regency.name}
+            <option value="" className="text-white">
+              Pilih Provinsi
+            </option>
+            {provinces.map((province) => (
+              <option key={province.id} value={province.id}>
+                {province.name}
               </option>
             ))}
           </select>
         </div>
-      )}
-      {selectedRegency && (
-        <div className="mb-4 mx-5">
-          <label className="block mb-2">Kecamatan</label>
-          <select
-            value={selectedDistrict}
-            onChange={(e) => {
-              setSelectedDistrict(e.target.value);
-              setSelectedVillage("");
-            }}
-            className="border p-2 w-full"
-          >
-            <option value="">Pilih Kecamatan</option>
-            {districts.map((district) => (
-              <option key={district.id} value={district.id}>
-                {district.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-      {selectedDistrict && (
-        <div className="mb-4 mx-5">
-          <label className="block mb-2">Desa:</label>
-          <select
-            value={selectedVillage}
-            onChange={(e) => setSelectedVillage(e.target.value)}
-            className="border p-2 w-full"
-          >
-            <option value="">Pilih Desa</option>
-            {villages.map((village) => (
-              <option key={village.id} value={village.id}>
-                {village.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-       <button
-        onClick={handleSubmit}
-        className={`bg-slate-800 text-white py-2 px-4 rounded-md hover:bg-slate-500 mx-5 float-right ${
-          isSubmitDisabled ? "opacity-0 cursor-not-allowed" : ""
-        }`}
-        disabled={isSubmitDisabled}
-      >
-        Submit
-      </button>
+        {selectedProvince && (
+          <div className="mb-4 mx-10">
+            <label className="block mb-2 text-white">Kabupaten/Kota</label>
+            <select
+              value={selectedRegency}
+              onChange={(e) => {
+                setSelectedRegency(e.target.value);
+                setSelectedDistrict("");
+                setSelectedVillage("");
+              }}
+              className="border p-2 w-full "
+            >
+              <option value="">Pilih Kabupaten/Kota</option>
+              {regencies.map((regency) => (
+                <option key={regency.id} value={regency.id}>
+                  {regency.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        {selectedRegency && (
+          <div className="mb-4 mx-10">
+            <label className="block mb-2 text-white">Kecamatan</label>
+            <select
+              value={selectedDistrict}
+              onChange={(e) => {
+                setSelectedDistrict(e.target.value);
+                setSelectedVillage("");
+              }}
+              className="border p-2 w-full"
+            >
+              <option value="">Pilih Kecamatan</option>
+              {districts.map((district) => (
+                <option key={district.id} value={district.id}>
+                  {district.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        {selectedDistrict && (
+          <div className="mb-4 mx-10">
+            <label className="block mb-2 text-white">Desa:</label>
+            <select
+              value={selectedVillage}
+              onChange={(e) => setSelectedVillage(e.target.value)}
+              className="border p-2 w-full"
+            >
+              <option value="">Pilih Desa</option>
+              {villages.map((village) => (
+                <option key={village.id} value={village.id}>
+                  {village.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        <button
+          onClick={handleSubmit}
+          className={`bg-black text-white py-2 px-4 rounded-md hover:bg-slate-500 mx-10 float-right ${
+            isSubmitDisabled ? "opacity-0 cursor-not-allowed" : ""
+          }`}
+          disabled={isSubmitDisabled}
+        >
+          Submit
+        </button>
+      </div>
     </div>
-    </div>
-   
   );
 };
