@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./pages/Home";
+import { FetchApi, Home, TicTacToe } from "./pages";
 
 function App() {
   
@@ -7,6 +7,14 @@ function App() {
     {
       path: "/",
       element: <Home/>,
+    },
+    {
+      path: "/tictactoe",
+      element: <TicTacToe/>,
+    },
+    {
+      path: "/fetchapi",
+      element: <FetchApi/>,
     },
     
   ]);
