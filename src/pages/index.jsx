@@ -1,5 +1,10 @@
-import Home from './Home'
+import { Home } from "./Home"
+import { TicTacToe } from "./TicTacToe"
+import { FetchApi } from "./FetchApi"
+
 
 export {
-    Home
+    Home,
+    TicTacToe,
+    FetchApi
 }
