@@ -111,16 +111,22 @@ export const TicTacToe = () => {
     }
   };
 
+  const getPlayerSymbol = (cellValue) => {
+    if (cellValue === "X") {
+      return <img src={cross} alt="Cross" className="m-5" />;
+    } else if (cellValue === "O") {
+      return <img src={circle} alt="Circle" className="m-5" />;
+    }
+    return null;
+  };
+
   const renderBox = (index) => (
     <div
       key={index}
       className="bg-slate-500 cursor-pointer w-28 h-28 flex items-center justify-center"
       onClick={() => handleClick(index)}
     >
-      {board[index] === "X" && <img src={cross} alt="Cross" className="m-5" />}
-      {board[index] === "O" && (
-        <img src={circle} alt="Circle" className="m-5" />
-      )}
+      {getPlayerSymbol(board[index])}
     </div>
   );
 
@@ -136,7 +142,9 @@ export const TicTacToe = () => {
             </Link>
           </div>
           <div className="flex-grow text-center">
-            <h1 className="text-2xl mr-10">SELAMAT DATANG GAMES TIC TAC TOE</h1>
+            <h1 className="text-2xl mr-10">
+              SELAMAT DATANG DI GAMES TIC TAC TOE
+            </h1>
           </div>
         </div>
         <div className="flex items-center justify-center">

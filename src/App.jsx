@@ -1,26 +1,26 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { FetchApi, Home, TicTacToe } from "./pages";
+import { Calculator, FetchApi, Home, TicTacToe } from "./pages";
 
 function App() {
-  
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>,
+      element: <Home />,
     },
     {
       path: "/tictactoe",
-      element: <TicTacToe/>,
+      element: <TicTacToe />,
     },
     {
       path: "/fetchapi",
-      element: <FetchApi/>,
+      element: <FetchApi />,
     },
-    
+    {
+      path: "/calculator",
+      element: <Calculator />,
+    },
   ]);
-  return (
-    <RouterProvider router={router} />
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

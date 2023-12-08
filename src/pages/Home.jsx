@@ -6,7 +6,10 @@ const Card = ({ title, content, linkTo }) => (
   <div className="bg-white p-4 rounded-lg">
     <h2 className="text-xl font-semibold mb-2">{title}</h2>
     <p>{content}</p>
-    <Link to={linkTo} className="mt-4 bg-slate-800 inline-block p-2 text-white rounded-lg hover:bg-slate-600">
+    <Link
+      to={linkTo}
+      className="mt-4 bg-slate-800 inline-block p-2 text-white rounded-lg hover:bg-slate-600"
+    >
       <p className="">Silahkan Dicoba</p>
     </Link>
   </div>
@@ -23,7 +26,7 @@ export const Home = () => {
     <div className="min-h-screen bg-slate-800 flex justify-center">
       <div className="container w-2/3  my-10 border border-white rounded-2xl">
         <h1 className="mt-3 text-center text-white text-3xl font-bold">
-          MINI-GAMES
+          MINI GAMES AND JS FEATURES
         </h1>
         <div className="flex items-center justify-center h-full">
           <div className="grid grid-cols-2 gap-4">
@@ -37,10 +40,12 @@ export const Home = () => {
               content="Pengujian Fetch API Provinsi Indonesia"
               linkTo="/fetchapi"
             />
-            <Card title="Card 3" content="Content for Card 3" linkTo="/page3" />
+            <Card
+              title="Calculator"
+              content="Calculator Sederhana"
+              linkTo="/calculator"
+            />
             <Card title="Card 4" content="Content for Card 4" linkTo="/page4" />
-            <Card title="Card 5" content="Content for Card 5" linkTo="/page5" />
-            <Card title="Card 6" content="Content for Card 6" linkTo="/page6" />
           </div>
         </div>
       </div>
