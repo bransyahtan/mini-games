@@ -45,7 +45,7 @@ export const Home = () => {
               content="Calculator Sederhana"
               linkTo="/calculator"
             />
-            <Card title="Card 4" content="Content for Card 4" linkTo="/page4" />
+            <Card title="OTW" content="OTW" linkTo="/" />
           </div>
         </div>
       </div>
