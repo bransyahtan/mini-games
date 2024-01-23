@@ -1,4 +1,3 @@
-// halaman route
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Calculator, FetchApi, Home, TicTacToe } from "./pages";
 
